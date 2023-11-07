@@ -18,6 +18,7 @@ else
             <tr>
                 <th>Name</th>
                 <th>Membership Type</th>
+                <th>Operation</th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@ else
 {
     <script>
         $(document).ready(function () {
+            $("#customers").DataTable();
             $("#customers").on("click", ".js-delete",function () {
                 var button = $(this);
                 var customerName = $(this);
