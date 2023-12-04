@@ -20,14 +20,16 @@ namespace Vidly.Controllers
         {
             _context.Dispose();
         }
-        // GET: Movies/Random
+        
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("Index");
 
-            return View(movies);
+            return View("ReadOnlyIndex");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ViewResult New ()
         {
             var genres = _context.Genres.ToList();
