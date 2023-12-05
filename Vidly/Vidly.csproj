@@ -240,6 +240,10 @@
     <Compile Include="Migrations\202312031752360_SeedUsers.designer.cs">
       <DependentUpon>202312031752360_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312052103358_AddPeselNumberToApplicationUser.cs" />
+    <Compile Include="Migrations\202312052103358_AddPeselNumberToApplicationUser.designer.cs">
+      <DependentUpon>202312052103358_AddPeselNumberToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -552,6 +556,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312031752360_SeedUsers.resx">
       <DependentUpon>202312031752360_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312052103358_AddPeselNumberToApplicationUser.resx">
+      <DependentUpon>202312052103358_AddPeselNumberToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
