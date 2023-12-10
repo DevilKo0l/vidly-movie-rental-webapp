@@ -247,6 +247,10 @@
     <Compile Include="Migrations\202312052103358_AddPeselNumberToApplicationUser.designer.cs">
       <DependentUpon>202312052103358_AddPeselNumberToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312101555032_AddPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\202312101555032_AddPhoneToApplicationUser.designer.cs">
+      <DependentUpon>202312101555032_AddPhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -562,6 +566,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312052103358_AddPeselNumberToApplicationUser.resx">
       <DependentUpon>202312052103358_AddPeselNumberToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312101555032_AddPhoneToApplicationUser.resx">
+      <DependentUpon>202312101555032_AddPhoneToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

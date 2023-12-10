@@ -12,6 +12,10 @@ namespace Vidly.Models
         [Required]
         [Display(Name = "Pesel Number")]
         public string PeselNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -76,6 +80,10 @@ namespace Vidly.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]        
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
