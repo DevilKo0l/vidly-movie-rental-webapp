@@ -18,7 +18,7 @@
     border-radius: 10px;
     -webkit-box-shadow: 0 0 2px #111;
     -moz-box-shadow: 0 0 2px #111;
-    box-shadow: 0 0 2px #111;
+    box-shadow: 0 0 2px #111;   
 }
 
 .Typeahead-spinner {
@@ -86,4 +86,8 @@
 
 .Typeahead-selectable + .Typeahead-selectable {
     border-top: 1px solid #ccd6dd;
+}
+
+.Typeahead-container{
+    position: relative;
 }
