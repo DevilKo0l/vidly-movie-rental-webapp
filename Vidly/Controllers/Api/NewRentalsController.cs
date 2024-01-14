@@ -13,6 +13,11 @@ namespace Vidly.Controllers.Api
     {
         private ApplicationDbContext _context;
 
+        public NewRentalsController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
@@ -40,8 +45,8 @@ namespace Vidly.Controllers.Api
             }
 
             _context.SaveChanges();
-            return Ok();
 
+            return Ok();
         }
     }
 }
