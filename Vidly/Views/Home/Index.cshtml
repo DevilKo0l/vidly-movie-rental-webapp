@@ -1,31 +1,212 @@
-﻿@{
+﻿@model  IEnumerable<Vidly.Models.Movie>
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+<p>
+    @Html.ActionLink("New Customer", "New", "Customer", null, new { @class = "btn btn-primary" })
+</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidly Movie Rental</title>
+    <style>
+        /* Basic Reset */
+        body, h1, h2, h3, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+
+
+        header {
+            background: #444;
+            color: #fff;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        .movie-list {
+            padding: 20px;
+            background: #fff;
+        }
+
+        .movie-list h2 {
+            padding-bottom: 20px;
+        }
+
+        .movies {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .movie {
+            position: relative;
+            background: #eee;
+            padding: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .movie img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .movie h3 {
+            margin-top: 10px;
+        }
+
+        .movie p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .movie:hover {
+            transform: scale(1.05); /* Slightly scale up the movie card */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            cursor: pointer; /* Change cursor to indicate it's clickable */
+        }
+
+        /* New styles for number of available copies */
+        .availability {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        /* Rent Button Styles */
+        .rent-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #5cb85c;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .rent-button:hover {
+            background-color: #4cae4c;
+        }
+
+        @*@media (max-width: 768px) {
+            .nav-links ul {
+                flex-direction: column;
+            }
+
+            .movies {
+                grid-template-columns: 1fr;
+            }
+        }*@
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Vidly!</h1>
+        <p>Your one-stop destination for movie rentals.</p>
+    </header>
+    <section class="movie-list">
+        <h2>Featured Movies</h2>
+        <div id="movies-container" class="movies">
+            <p id="no-movies-message" style="display: none;">No movies available.</p>
+        </div>
+    </section>
+</body>
+</html>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            // Function to fetch and update movies
+            function fetchAndUpdateMovies() {
+                $.ajax({
+                    url: '/api/movies',
+                    method: 'GET',
+                    success: function (movies) {
+                        $('#movies-container').empty(); // Clear the current movies
+                        if (movies.length === 0) {
+                            $('#no-movies-message').show();
+                        } else {
+                            $('#no-movies-message').hide();
+                            $.each(movies, function (index, movie) {
+                                var movieHtml =
+                                    '<div class="movie">' +
+                                    '<div class="availability">Available: ' + movie.numberAvailable + '</div>' +                                   
+                                    '<h3>' + movie.name + '</h3>' +
+                                    '<p>Short description about the movie...</p>' +
+                                    '<button class="rent-button" data-movie-id="' + movie.id + '">Rent Now</button>' +
+                                    '</div>';
+                                $('#movies-container').append(movieHtml);
+                            });
+                        }
+                    },
+                    error: function () {
+                        alert('Error loading movies. Please try again later.');
+                    }
+                });
+            }
+
+            // Initial fetch
+            fetchAndUpdateMovies();
+
+            // Set interval for polling (e.g., 5000ms = 5s)
+            setInterval(fetchAndUpdateMovies, 5000);
+
+            // ... (rest of your script for handling button clicks, etc.) ...
+        });
+    </script>
+}
